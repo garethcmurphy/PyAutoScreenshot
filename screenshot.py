@@ -5,7 +5,7 @@ import time
 import json
 
 
-class GetScreenshot():
+class GetScreenshot:
     def __init__(self):
         self.catamel_url = "https://scicatapi.esss.dk/"
         self.catanie_url = "https://scicat.esss.dk/"
@@ -15,12 +15,12 @@ class GetScreenshot():
             data = json.load(f)
 
         browser = webdriver.Chrome()
-        browser.get(self.catamel_url+"visualize")
+        browser.get(self.catamel_url + "visualize")
         browser.save_screenshot("visualize.png")
-        browser.get(self.catamel_url+"modeldiagram")
+        browser.get(self.catamel_url + "modeldiagram")
         browser.save_screenshot("modeldiagram.png")
 
-        browser.get(self.catanie_url+"login")
+        browser.get(self.catanie_url + "login")
         browser.save_screenshot("login.png")
         username = browser.find_element_by_id("emailInput")
         password = browser.find_element_by_id("pwdInput")
@@ -28,13 +28,13 @@ class GetScreenshot():
         username.send_keys(data["username"])
         password.send_keys(data["password"])
 
-        element = browser.find_element_by_id("login-btn").click()
-        time.sleep(10)
+        browser.find_element_by_id("login-btn").click()
+        time.sleep(3)
         browser.save_screenshot("dashboard.png")
 
         browser.quit()
 
 
 if __name__ == '__main__':
-    g= GetScreenshot()
+    g = GetScreenshot()
     g.get_screenshot()
