@@ -7,19 +7,20 @@ import json
 
 class GetScreenshot():
     def __init__(self):
-        x = 2
+        self.catamel_url = "https://scicatapi.esss.dk/"
+        self.catanie_url = "https://scicat.esss.dk/"
 
     def get_screenshot(self):
         with open('brightconfig.json') as f:
             data = json.load(f)
 
         browser = webdriver.Chrome()
-        browser.get("https://scicatapi.esss.dk/visualize")
+        browser.get(self.catamel_url+"visualize")
         browser.save_screenshot("visualize.png")
-        browser.get("https://scicatapi.esss.dk/modeldiagram")
+        browser.get(self.catamel_url+"modeldiagram")
         browser.save_screenshot("modeldiagram.png")
 
-        browser.get("https://scicat.esss.dk/login")
+        browser.get(self.catanie_url+"login")
         browser.save_screenshot("login.png")
         username = browser.find_element_by_id("emailInput")
         password = browser.find_element_by_id("pwdInput")
