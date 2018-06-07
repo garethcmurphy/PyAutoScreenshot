@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-from selenium import webdriver
 import time
 
 import json
+from selenium import webdriver
 
 
-class GetScreenshot:
+class PyAutoScreenshot:
     def __init__(self):
         self.catamel_url = "https://scicatapi.esss.dk/"
         self.catanie_url = "https://scicat.esss.dk/"
@@ -36,5 +36,5 @@ class GetScreenshot:
 
 
 if __name__ == '__main__':
-    g = GetScreenshot()
+    g = PyAutoScreenshot()
     g.get_screenshot()
