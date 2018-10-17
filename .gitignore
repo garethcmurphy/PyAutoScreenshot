@@ -2,3 +2,4 @@ brightconfig.json
 geckodriver.log
 venv
 .idea
+*.zip
